@@ -1,0 +1,12 @@
+.loader {
+  text-align: center;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+}
+.navBar-logo {
+  margin-right: 6px;
+  margin-left: 6px;
+}
