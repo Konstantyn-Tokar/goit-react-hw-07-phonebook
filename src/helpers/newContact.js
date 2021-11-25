@@ -1,5 +1,4 @@
 export const getNewContact = (state, action) => {
-  console.log("xnj-nj");
   const existingContact = state.some(
     ({ name }) => name === action.payload.name
   );

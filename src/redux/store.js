@@ -11,7 +11,7 @@ import {
 } from "redux-persist";
 // import storage from "redux-persist/lib/storage";
 import contactsReduser from "./reducer";
-// import logger from "redux-logger";
+import logger from "redux-logger";
 
 // const contactsPersistConfig = {
 //   key: "contacts",
@@ -31,8 +31,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
-  // .concat(logger),
+    }).concat(logger),
   devTools: process.env.NODE_ENV === "development",
 });
 
