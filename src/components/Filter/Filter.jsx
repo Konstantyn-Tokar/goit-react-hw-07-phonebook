@@ -14,6 +14,7 @@ export default function Filter() {
         name="filter"
         value={filter}
         onChange={(e) => dispatch(handelChangeFilter(e.currentTarget.value))}
+        autoComplete="off"
       />
     </>
   );

@@ -49,6 +49,7 @@ export default function ContactForm() {
           required
           value={name}
           onChange={handelChange}
+          autoComplete="off"
         />
       </Form.Group>
 
@@ -62,6 +63,7 @@ export default function ContactForm() {
           required
           value={number}
           onChange={handelChange}
+          autoComplete="off"
         />
       </Form.Group>
 

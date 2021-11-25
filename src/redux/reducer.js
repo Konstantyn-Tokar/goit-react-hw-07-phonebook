@@ -4,22 +4,14 @@ import { handelChangeFilter } from "./action";
 import { fatchContact, addContact, deleteContact } from "./operations";
 import { getNewContact } from "../helpers/newContact";
 
-import store from "./store";
-
-const itemsReduser = createReducer([], {
-  [fatchContact.fulfilled]: (_, { payload }) => {
-    console.log(store.getState());
-    return payload;
-  },
-  [addContact.fulfilled]: (state, action) => {
-    console.log(store.getState());
-    getNewContact(state, action);
-  },
+const items = createReducer([], {
+  [fatchContact.fulfilled]: (_, { payload }) => payload,
+  [addContact.fulfilled]: (state, action) => getNewContact(state, action),
   [deleteContact.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
 
-const filterReduser = createReducer("", {
+const filter = createReducer("", {
   [handelChangeFilter]: (_, action) => action.payload,
 });
 
@@ -38,7 +30,7 @@ const loading = createReducer(false, {
 });
 
 export default combineReducers({
-  items: itemsReduser,
-  filter: filterReduser,
+  items,
+  filter,
   loading,
 });
