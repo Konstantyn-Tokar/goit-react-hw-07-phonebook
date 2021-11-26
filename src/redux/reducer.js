@@ -2,11 +2,10 @@ import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import { handelChangeFilter } from "./action";
 import { fatchContact, addContact, deleteContact } from "./operations";
-import { getNewContact } from "../helpers/newContact";
 
 const items = createReducer([], {
   [fatchContact.fulfilled]: (_, { payload }) => payload,
-  [addContact.fulfilled]: (state, action) => getNewContact(state, action),
+  [addContact.fulfilled]: (state, action) => [...state, action.payload],
   [deleteContact.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });

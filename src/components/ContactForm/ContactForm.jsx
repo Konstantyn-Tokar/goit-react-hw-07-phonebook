@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/operations";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -8,6 +8,7 @@ export default function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumder] = useState("");
   const dispatch = useDispatch();
+  const сontacts = useSelector((state) => state.contacts.items);
 
   const handelChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +28,14 @@ export default function ContactForm() {
 
   const handelSubmit = (e) => {
     e.preventDefault();
+    if (
+      сontacts.some(
+        (contact) => contact.name.toLowerCase() === name.toLowerCase()
+        // (contact) => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
+      return alert(`Пользователь с именем ${name} уже добавлен`);
+    }
 
     dispatch(addContact({ name, number }));
     toСlear();

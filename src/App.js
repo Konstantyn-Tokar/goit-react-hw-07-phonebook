@@ -16,7 +16,7 @@ import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
 
 function App() {
-  const louder = useSelector((state) => state.contacts.loading);
+  const loader = useSelector((state) => state.contacts.loading);
 
   return (
     <>
@@ -38,7 +38,7 @@ function App() {
           <Col sm={4}>
             <ContactForm />
             <Container className="p-5">
-              {louder && (
+              {loader && (
                 <Loader
                   className="loader"
                   type="Oval"
