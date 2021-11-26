@@ -29,7 +29,7 @@ export default function ContactForm() {
   const handelSubmit = (e) => {
     e.preventDefault();
     if (
-      сontacts.some(
+      сontacts.find(
         (contact) => contact.name.toLowerCase() === name.toLowerCase()
         // (contact) => contact.name.toLowerCase() === name.toLowerCase()
       )

@@ -10,6 +10,7 @@ export default function Filter() {
     <>
       <Form.Label>Find contacts by name</Form.Label>
       <Form.Control
+        className="form-control-my"
         type="text"
         name="filter"
         value={filter}
